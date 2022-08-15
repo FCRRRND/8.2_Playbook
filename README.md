@@ -179,7 +179,7 @@ localhost                  : ok=5    changed=1    unreachable=0    failed=0    s
 
 10. Готовый playbook выложите в свой репозиторий, в ответ предоставьте ссылку на него.
 
-   [Playbook][https://github.com/FCRRRND/8.2_Playbook/blob/main/playbook/site.yml]
+   [Playbook](https://github.com/FCRRRND/8.2_Playbook/blob/main/playbook/site.yml)
 
 ### Как оформить ДЗ?
 
