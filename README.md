@@ -150,6 +150,9 @@ localhost                  : ok=5    changed=1    unreachable=0    failed=0    s
 ```
 
 8. Повторно запустите playbook с флагом `--diff` и убедитесь, что playbook идемпотентен.
+
+   Да всё вроде идемпотентно)
+
 9. Подготовьте README.md файл по своему playbook. В нём должно быть описано: что делает playbook, какие у него есть параметры и теги.
 
    1. Тэги для java 
@@ -160,18 +163,14 @@ localhost                  : ok=5    changed=1    unreachable=0    failed=0    s
     - Extract java in the installation directory - распаковывае архив в директорию, которая указана у нас в /templates/jdk.sh.j2
     - Export environment variables - делаем экспорт переменных окружения
 
-Install Elastic
-
-установлены тэги elastic для дальнейшего использования и отладки
+   2. Тэги для elastic
 
     - Upload .tar.gz file containing binaries from local storage - загружаем архив установщика
     - Ensure installation dir exists - создаем рабочий каталог
     - Extract java in the installation directory - распаковывае архив в директорию, которая указана у нас в /templates/elk.sh.j2
     - Export environment variables - делаем экспорт переменных окружения
     
-Install Kibana
-
-установлены тэги kibana для дальнейшего использования и отладки
+   3. Тэги для hibana
 
     - Upload .tar.gz file containing binaries from local storage - загружаем архив установщика
     - Ensure installation dir exists - создаем рабочий каталог
