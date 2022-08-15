@@ -1,0 +1,13 @@
+---
+  local:
+    hosts:
+      localhost:
+        ansible_connection: local
+  elasticsearch:
+    hosts:
+      elastic:
+        ansible_connection: docker
+  kibana:
+    hosts:
+      kibana:
+        ansible_connection: docker
