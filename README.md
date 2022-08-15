@@ -151,8 +151,8 @@ localhost                  : ok=5    changed=1    unreachable=0    failed=0    s
 
 8. Повторно запустите playbook с флагом `--diff` и убедитесь, что playbook идемпотентен.
  
-   ```
-   hummer@hummer-X570-GAMING-X:~/8.2_Playbook/playbook$ sudo ansible-playbook site.yml -i inventory/prod.yml --diff
+```
+hummer@hummer-X570-GAMING-X:~/8.2_Playbook/playbook$ sudo ansible-playbook site.yml -i inventory/prod.yml --diff
 [sudo] пароль для hummer: 
 [WARNING]: Found both group and host with same name: kibana
 
