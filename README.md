@@ -150,8 +150,89 @@ localhost                  : ok=5    changed=1    unreachable=0    failed=0    s
 ```
 
 8. Повторно запустите playbook с флагом `--diff` и убедитесь, что playbook идемпотентен.
+ 
+   ```
+   hummer@hummer-X570-GAMING-X:~/8.2_Playbook/playbook$ sudo ansible-playbook site.yml -i inventory/prod.yml --diff
+[sudo] пароль для hummer: 
+[WARNING]: Found both group and host with same name: kibana
 
-   Да всё вроде идемпотентно)
+PLAY [Install Java] ***************************************************************************************************************************************************************************************
+
+TASK [Gathering Facts] ************************************************************************************************************************************************************************************
+ok: [localhost]
+[DEPRECATION WARNING]: Distribution Ubuntu 18.04 on host elastic should use /usr/bin/python3, but is using /usr/bin/python for backward compatibility with prior Ansible releases. A future Ansible 
+release will default to using the discovered platform python for this host. See https://docs.ansible.com/ansible/2.10/reference_appendices/interpreter_discovery.html for more information. This feature 
+will be removed in version 2.12. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+ok: [elastic]
+[DEPRECATION WARNING]: Distribution Ubuntu 18.04 on host kibana should use /usr/bin/python3, but is using /usr/bin/python for backward compatibility with prior Ansible releases. A future Ansible release
+ will default to using the discovered platform python for this host. See https://docs.ansible.com/ansible/2.10/reference_appendices/interpreter_discovery.html for more information. This feature will be 
+removed in version 2.12. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+ok: [kibana]
+
+TASK [Set facts for Java 11 vars] *************************************************************************************************************************************************************************
+ok: [localhost]
+ok: [elastic]
+ok: [kibana]
+
+TASK [Upload .tar.gz file containing binaries from local storage] *****************************************************************************************************************************************
+ok: [localhost]
+ok: [kibana]
+ok: [elastic]
+
+TASK [Ensure installation dir exists] *********************************************************************************************************************************************************************
+ok: [localhost]
+ok: [kibana]
+ok: [elastic]
+
+TASK [Extract java in the installation directory] *********************************************************************************************************************************************************
+skipping: [localhost]
+skipping: [kibana]
+skipping: [elastic]
+
+TASK [Export environment variables] ***********************************************************************************************************************************************************************
+ok: [localhost]
+ok: [elastic]
+ok: [kibana]
+
+PLAY [Install Elasticsearch] ******************************************************************************************************************************************************************************
+
+TASK [Gathering Facts] ************************************************************************************************************************************************************************************
+ok: [elastic]
+
+TASK [Upload tar.gz Elasticsearch from remote URL] ********************************************************************************************************************************************************
+ok: [elastic]
+
+TASK [Create directrory for Elasticsearch] ****************************************************************************************************************************************************************
+ok: [elastic]
+
+TASK [Extract Elasticsearch in the installation directory] ************************************************************************************************************************************************
+ok: [elastic]
+
+TASK [Set environment Elastic] ****************************************************************************************************************************************************************************
+ok: [elastic]
+
+PLAY [Install Kibana] *************************************************************************************************************************************************************************************
+
+TASK [Gathering Facts] ************************************************************************************************************************************************************************************
+ok: [kibana]
+
+TASK [Upload tar.gz Kibana from remote URL] ***************************************************************************************************************************************************************
+ok: [kibana]
+
+TASK [Create directrory for Kibana (/opt/kibana/7.15.1)] **************************************************************************************************************************************************
+ok: [kibana]
+
+TASK [Extract Kibana in the installation directory] *******************************************************************************************************************************************************
+ok: [kibana]
+
+TASK [Set environment Kibana] *****************************************************************************************************************************************************************************
+ok: [kibana]
+
+PLAY RECAP ************************************************************************************************************************************************************************************************
+elastic                    : ok=10   changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+kibana                     : ok=10   changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+localhost                  : ok=5    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+```
 
 9. Подготовьте README.md файл по своему playbook. В нём должно быть описано: что делает playbook, какие у него есть параметры и теги.
 
